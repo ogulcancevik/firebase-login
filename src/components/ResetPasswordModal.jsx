@@ -1,12 +1,18 @@
 import { resetPassword } from '@/firebase'
 import { Input, Modal } from 'antd'
 import React, { useState } from 'react'
+import toast from 'react-hot-toast'
 
 const ResetPasswordModal = ({ show, setShow }) => {
   const [email, setEmail] = useState('')
   const handleOk = async () => {
-    await resetPassword(email)
-    setShow(false)
+    try {
+      await resetPassword(email)
+      toast.success('Password reset email sent')
+      setShow(false)
+    } catch (error) {
+      toast.error(error.message)
+    }
   }
   const handleCancel = () => {
     setShow(false)
