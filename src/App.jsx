@@ -1,15 +1,13 @@
 import React from 'react'
-import { db } from './firebase'
+import { Toaster } from 'react-hot-toast'
+import Router from './Router'
 
 const App = () => {
-  const add = () => {
-    console.log(db)
-  }
   return (
-    <div>
-      <h1>Hello World</h1>
-      <button onClick={add}>test</button>
-    </div>
+    <>
+      <Router />
+      <Toaster />
+    </>
   )
 }
 
