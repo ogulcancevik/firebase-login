@@ -1,4 +1,4 @@
-import { logout } from '@/firebase'
+import { logout } from '@/services/auth.service'
 import React from 'react'
 
 const HomeView = () => {

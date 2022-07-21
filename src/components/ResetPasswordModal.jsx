@@ -1,4 +1,4 @@
-import { resetPassword } from '@/firebase'
+import { resetPassword } from '@/services/auth.service'
 import { Input, Modal } from 'antd'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'

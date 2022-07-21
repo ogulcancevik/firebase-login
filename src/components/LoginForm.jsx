@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Form, Input } from 'antd'
-import { login } from '@/firebase'
 import toast from 'react-hot-toast'
 import { useDispatch } from 'react-redux'
 import { SET_TOKEN } from '@/store/modules/auth'
 import { useNavigate } from 'react-router-dom'
+import { login } from '@/services/auth.service'
 const LoginForm = ({ setModal }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
