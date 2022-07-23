@@ -7,7 +7,7 @@ const HomeView = () => {
   return (
     <div className='h-screen w-screen flex flex-col justify-center items-center bg-slate-200'>
       <h1 className='text-4xl'>Welcome {currentUser.email}</h1>
-      <div className='text-2xl' onClick={async () => {
+      <div className='text-2xl cursor-pointer' onClick={async () => {
         await logout()
       }}>Logout</div>
     </div>
