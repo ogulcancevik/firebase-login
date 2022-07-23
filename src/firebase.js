@@ -1,7 +1,9 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
 import { store } from './store'
 import { SET_CURRENT_USER } from './store/modules/auth'
+const dispatch = store.dispatch
 const firebaseConfig = {
   apiKey: 'AIzaSyBsTD17jy4wTab53_JhFp-GGgWTLytDvC4',
   authDomain: 'blogue-9a037.firebaseapp.com',
@@ -13,8 +15,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 export const auth = getAuth()
-
-const dispatch = store.dispatch
+export const db = getFirestore()
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     dispatch(SET_CURRENT_USER(null))

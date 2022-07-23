@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { SET_TOKEN } from '@/store/modules/auth'
 import { useNavigate } from 'react-router-dom'
 import { login } from '@/services/auth.service'
-const LoginForm = ({ setModal }) => {
+const LoginForm = ({ setResetPasswordModal, setSignupModalVisible }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const handleLogin = async (values) => {
@@ -67,6 +67,15 @@ const LoginForm = ({ setModal }) => {
         >
           <Input.Password />
         </Form.Item>
+        <div className="flex mb-4 justify-end text-xs">
+          <span className="text-gray-600">Forgot your password</span>
+          <span
+            onClick={() => setResetPasswordModal(true)}
+            className="text-blue-400 font-medium cursor-pointer hover:text-blue-500 transition-all ml-1"
+          >
+            Reset Password
+          </span>
+        </div>
         <div className="flex justify-end w-full">
           <Form.Item>
             <Button type="primary" htmlType="submit">
@@ -74,16 +83,16 @@ const LoginForm = ({ setModal }) => {
             </Button>
           </Form.Item>
         </div>
+        <div className="flex justify-center">
+          <span className="text-gray-600">Not a member?</span>
+          <span
+            onClick={() => setSignupModalVisible(true)}
+            className="text-blue-400 font-medium cursor-pointer hover:text-blue-500 transition-all ml-1"
+          >
+            Sign up
+          </span>
+        </div>
       </Form>
-      <div>
-        <span className="text-gray-600">Forgot your password</span>
-        <span
-          onClick={() => setModal(true)}
-          className="text-blue-400 font-medium cursor-pointer hover:text-blue-500 transition-all ml-1"
-        >
-          Reset Password
-        </span>
-      </div>
     </div>
   )
 }
